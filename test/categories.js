@@ -354,7 +354,7 @@ describe('Categories', () => {
                 order: '5',
                 parentCid: parent.cid,
                 uid: '0',
-                cloneChildren: true
+                cloneChildren: true,
             }, (err, category) => {
                 assert.ifError(err);
                 done();
@@ -372,7 +372,7 @@ describe('Categories', () => {
                 cid: child1.cid,
                 parentCid: parent.cid,
                 uid: '0',
-                cloneChildren: true
+                cloneChildren: true,
             }, (err, category) => {
                 assert.ifError(err);
                 done();
