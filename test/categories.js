@@ -356,6 +356,7 @@ describe('Categories', () => {
                 uid: '0',
                 cloneChildren: true
             }, (err, category) => {
+                assert.ifError(err);
                 done();
             });
         });
