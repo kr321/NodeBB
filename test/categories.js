@@ -343,6 +343,22 @@ describe('Categories', () => {
             const data = await apiCategories.get({ uid: posterUid }, { cid: categoryObj.cid });
             assert.equal(categoryObj.cid, data.cid);
         });
+        it('should duplicate categories children with no children', (done) => {
+            const parent = Categories.create({ name: 'parent', description: 'duplicate child' });
+            const child1 = Categories.create({ name: 'child1' });
+            Categories.create({
+                name: 'Test Category & NodeBB',
+                description: 'Test category created by testing script',
+                icon: 'fa-check',
+                blockclass: 'category-blue',
+                order: '5',
+                parentCid: parent.cid,
+                uid: '0',
+                cloneChildren: true
+            }, (err, category) => {
+                done();
+            });
+        });
     });
 
     describe('admin api/socket methods', () => {
